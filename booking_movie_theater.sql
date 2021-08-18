@@ -23,14 +23,16 @@ CREATE TABLE IF NOT EXISTS `booking_movie_theater`.`employees` (
   UNIQUE KEY `password` (`password`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/* Create reservation_type table*/
+/* Create reservation_type table */
 CREATE TABLE IF NOT EXISTS `booking_movie_theater`.`reservation_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `reservation_type` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `price` CHECK (`price` >= 5.90 AND `price` <= 9.20)
+  `age` int(11) NOT NULL,
+  `is_student` tinyint(1) NOT NULL,
+  `price` decimal(2,2) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 /* Create movie table */
 CREATE TABLE IF NOT EXISTS `booking_movie_theater`.`movie` (
