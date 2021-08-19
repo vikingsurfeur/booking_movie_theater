@@ -1,7 +1,7 @@
 /* Create a trigger after insert into reservation table to modify and define the price column into reservation_type */
 DELIMITER $$
 
-CREATE TRIGGER `booking_movie_theater`.`after_insert_reservation`
+CREATE TRIGGER `booking_movie_theater`.`after_insert_reservation_def_price`
 AFTER INSERT ON `booking_movie_theater`.`reservation`
 FOR EACH ROW
 BEGIN
@@ -28,7 +28,7 @@ BEGIN
 
     SELECT `theater`.`seats_capacity` INTO @seats_capacity
     FROM `booking_movie_theater`.`theater`
-    WHERE `theater`.`id` = `theater_id`;
+    WHERE `theater`.`id` = `id`;
 
     IF @seat_reserved >= @seats_capacity THEN
         SIGNAL SQLSTATE '45000'
