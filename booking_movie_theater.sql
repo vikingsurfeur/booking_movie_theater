@@ -184,7 +184,7 @@ VALUES(
     '2022-01-01 17:00:00'
 );
 
-/* Create a trigger after insert into reservation table to modify and define the price column */
+/* Create a trigger after insert into reservation table to modify and define the price column into reservation_type */
 DELIMITER $$
 
 CREATE TRIGGER `booking_movie_theater`.`after_insert_reservation`
